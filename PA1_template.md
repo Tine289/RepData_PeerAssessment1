@@ -7,13 +7,17 @@ output:
     keep_md: yes
 ---
 
+
+```r
+library(knitr)
+opts_chunk$set(echo=TRUE)
+```
+
 ##1. Loading and Preprocessing Data
 
 ```r
 activity <- read.csv("C://Users/tsc029/Desktop/R/repdata_data_activity/activity.csv", sep = ",", header = TRUE, na.strings = "NA" )
 activity <- transform(activity,  date = factor(date))
-
-options(knitr.duplicate.label = "allow")
 ```
 
 ##2. The mean number of steps taken per day
@@ -141,10 +145,6 @@ hist(activity_imp$steps, xlab = "Number of steps per day", ylab = "Frequency", m
 
 ![](PA1_template_files/figure-html/ImputedSteps-1.png)<!-- -->
 
-```r
-sink()
-```
-
 
 ###Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment?
 
@@ -219,4 +219,3 @@ g+  geom_line()+
 
 ![](PA1_template_files/figure-html/Weekday/Weekend Plots-1.png)<!-- -->
 
-sink(dir )
